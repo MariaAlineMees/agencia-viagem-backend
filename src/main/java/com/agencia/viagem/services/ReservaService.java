@@ -46,16 +46,16 @@ public class ReservaService {
     }
 
     public Reserva atualizar(Long id, Reserva reservaAtualizada) {
-        Reserva reservaExistente = buscarPorId(id); // Reutiliza o método de busca
+        Reserva reservaExistente = buscarPorId(id); 
 
-        // Atualiza os campos da reserva existente com os novos valores
+        
         reservaExistente.setNomeCliente(reservaAtualizada.getNomeCliente());
         reservaExistente.setEmail(reservaAtualizada.getEmail());
         reservaExistente.setDataPartida(reservaAtualizada.getDataPartida());
         reservaExistente.setDataRetorno(reservaAtualizada.getDataRetorno());
         reservaExistente.setQuantidadePessoas(reservaAtualizada.getQuantidadePessoas());
 
-        // Valida e atualiza o destino se necessário
+        
         if (reservaAtualizada.getDestino() != null && reservaAtualizada.getDestino().getId() != null) {
             Destino novoDestino = destinoRepository.findById(reservaAtualizada.getDestino().getId())
                     .orElseThrow(() -> new EntityNotFoundException("Destino não encontrado com o ID: " + reservaAtualizada.getDestino().getId()));
