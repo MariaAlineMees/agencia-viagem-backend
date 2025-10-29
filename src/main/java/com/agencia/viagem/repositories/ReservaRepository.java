@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
-    // Busca reservas cujo nome do cliente contenha a string fornecida, ignorando maiúsculas/minúsculas.
+    
     List<Reserva> findByNomeClienteContainingIgnoreCase(String nomeCliente);
 }
